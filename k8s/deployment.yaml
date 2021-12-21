@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-app
+spec:
+  selector:
+    matchLabels:
+      app: php-app
+  template:
+    metadata:
+      labels:
+        app: php-app
+    spec:
+      containers:
+      - name: php-app
+        image: shyavappa/shyavappa_atc:shyavappaphp-app
+        imagePullPolicy: Always
+        resources: {}
+        envFrom:
+          - secretRef:
+              name: php-app-secret
+      imagePullSecrets:
+      - name: dockerhub

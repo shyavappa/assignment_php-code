@@ -1,2 +1,29 @@
-# assignment_php-code
-assignment_php-code
+# Shyavappa PHP Sample app
+
+Tech stack:
+
+- PHP
+- Docker
+- Kubernetes
+
+## Steps to deploy the app on kubernetes
+
+- Clone the repo
+
+```sh
+git clone
+cd php-code
+```
+
+- Build the image and push it to your docker registry
+
+```sh
+docker build -t <docker_repo/your_image_name>:<tag> .
+docker image push <docker_repo/your_image_name>:<tag>
+```
+
+- Deploy the components in k8s/ folder to your kubernetes cluster
+
+```sh
+kubectl apply -f ./k8s/
+```
